@@ -1,17 +1,16 @@
-import scalaj.http.{Token, Http}
-import scalaj.http.HttpOptions._
 import java.util.Calendar
+import twitter4j.{Twitter, TwitterFactory}
+import twitter4j.auth.AccessToken
 
 object ScalaConfJPCountDown extends App {
   def tweet(msg: String) {
     if (msg.isEmpty) return
-    val consumer = Token(System.getenv("CONSUMER_KEY"), System.getenv("CONSUMER_SECRET"))
-    val accessToken = Token(System.getenv("ACCESS_TOKEN"), System.getenv("ACCESS_SECRET"))
-    Http.post("https://api.twitter.com/1/statuses/update.xml")
-      .options(connTimeout(1000), readTimeout(5000))
-      .params("status" -> msg)
-      .oauth(consumer, accessToken)
-      .asXml
+    val twitter: Twitter = new TwitterFactory().getInstance()
+    twitter.setOAuthConsumer(System.getenv("CONSUMER_KEY"),
+      System.getenv("CONSUMER_SECRET"))
+    twitter.setOAuthAccessToken(new AccessToken(System.getenv("ACCESS_TOKEN"),
+      System.getenv("ACCESS_SECRET")))
+    twitter.updateStatus(msg)
   }
 
   def createMessage(dateDiff: Long): String = {

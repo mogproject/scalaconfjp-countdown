@@ -1,5 +1,4 @@
-target
-project/boot
-project/target
-project/plugins/target
 .DS_Store
+Thumnail.db
+target/
+project/boot/
