@@ -22,8 +22,7 @@ object ScalaConfJPCountDown extends App {
       case -1 => event + " 本日はアンカンファレンス開催日です!"
       case 0 => "お待たせしました!! " + event + " 本日開催です!"
       case 1 => event + " いよいよ明日開催です!"
-//      case days if days > 0 => event + " 開催まであと " + days + "日です!"
-      case days if days > 0 => event + " Coming in " + days + "days!"
+      case days if days > 0 => event + " 開催まであと " + days + "日です!"
       case _ => return ""
     }
     body + foot
