@@ -9,7 +9,7 @@ object ScalaConfJPCountDown extends App {
     twitter.setOAuthConsumer(System.getenv("CONSUMER_KEY"),
       System.getenv("CONSUMER_SECRET"))
     twitter.setOAuthAccessToken(new AccessToken(System.getenv("ACCESS_TOKEN"),
-      System.getenv("ACCESS_SECRET")))
+      System.getenv("ACCESS_TOKEN_SECRET")))
     twitter.updateStatus(msg)
   }
 
