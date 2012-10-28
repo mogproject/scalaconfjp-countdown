@@ -31,5 +31,5 @@ object ScalaConfJPCountDown extends App {
   val cal = now.clone.asInstanceOf[Calendar]
   cal.set(2013, 2, 2)  // 2013-03-02
   val diff = (cal.getTime.getTime - now.getTime.getTime) / 24 / 60 / 60 / 1000
-  tweet(createMessage(diff))
+  tweet(createMessage(diff - 1))
 }
