@@ -14,11 +14,11 @@ object ScalaConfJPCountDown extends App {
   }
 
   def createMessage(dateDiff: Long): String = {
-    val event = "Scala Conference in Japan"
+    val event = "Scala Conference in Japan 2013"
     val foot = " http://www.scalaconf.jp"
     val body = dateDiff match {
       case -2 => "本サービスは本日をもって終了いたします。ご利用ありがとうございました。"
-      case -1 => event + " 本日はアンカンファレンス開催日です!"
+      case -1 => event + " 本日は Scala Hack-a-thon 開催日です!"
       case 0 => "お待たせしました!! " + event + " 本日開催です!"
       case 1 => event + " いよいよ明日開催です!"
       case days if days > 0 => event + " 開催まであと " + days + "日です!"
